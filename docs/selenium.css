@@ -1,0 +1,160 @@
+/*****************************************************************************
+ * Labels: text, symbols
+******************************************************************************/
+
+text {
+  font: normal 16px sans-serif;
+  text-align: center;
+  text-anchor: middle;
+}
+.specialKey text {
+  font-size: 14px;
+}
+text.pc {
+  font-size: 12px;
+}
+text.shortcut {
+  font-size: 10px;
+}
+text.sticky {
+  transform: rotate(-90deg);
+}
+
+text.level0, use.level0,
+text.level1, use.level1,
+text.level2, use.level2 { opacity: 0.5; }
+text.colorNav, text.borderNav,
+text.colorNum, text.borderNum,
+text.colorFun, text.borderFun,
+text.colorSym, text.borderSym,
+text.colorMod, text.borderMod,
+.thumb use.level0,
+.thumb use.level1,
+.thumb use.level2 { opacity: 1; }
+/* ugly but used for manual overrides only */
+.dimmed { opacity: 0.3 !important; }
+
+/* symbols */
+use.level0,
+use.level2,
+use.layerSym,
+use.layerNav,
+use.layerVim {
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.matrix .layerNav { display: none; }
+.matrix .layerVim { display: none; }
+.matrix .layerFun { display: none; }
+.matrix .layerSym { display: none; }
+.matrix .layerNum { display: none; }
+.matrix .mac      { display: none !important; }
+
+[layer3="nav"] .layerNav { display: block; }
+[layer3="vim"] .layerVim { display: block; }
+[layer3="fun"] .layerFun { display: block; }
+[layer4="sym"] .layerSym { display: block; }
+[layer4="num"] .layerNum { display: block; }
+
+.tt .holdTap, .tt .borderMod,
+.ez .holdTap, .ez .borderMod { display: none; }
+
+/* Selenium currently forces HRM in the 'Media' half-layer */
+#right[layer3="fun"] .borderMod { display: block; }
+
+#select {
+  transform: translate(70px, 280px);
+}
+#select text {
+  font-size: 10px;
+  text-align: left;
+  text-anchor: start;
+}
+
+
+/*****************************************************************************
+ * Color Theme
+******************************************************************************/
+
+:root {
+  --key-bg: #fff;
+  --key-fg: #666;
+  --key-label: #222;
+  --key-special: #ddd;
+
+  /* Symbol layer */
+  --layer-sym-fg: #4646ff;
+  --shift-sym-fg: #4f4fac;
+  --shift-sym-bg: #ceceff;
+
+  /* Navigation layer */
+  --layer-nav-fg: rgb(198, 106, 29);
+  --shift-nav-fg: #aa422b;
+  --shift-nav-bg: #ffd2ac;
+
+  /* Numeric layer */
+  --layer-num-fg: #009900;
+  --shift-num-fg: #437a43;
+  --shift-num-bg: #a2e7a2;
+
+  /* Function layer */
+  --layer-fun-fg: #930404;
+  --shift-fun-fg: #930404;
+  --shift-fun-bg: #faabe2;
+}
+
+rect {
+  fill:   var(--key-bg);
+  stroke: var(--key-fg);
+  stroke-width: .5px;
+}
+
+use.level0,
+use.level2 { stroke: var(--key-label); }
+text       { fill:   var(--key-label); }
+
+.specialKey use,
+.specialKey text { stroke-width: 4px; }
+.specialKey rect { fill: var(--key-special); }
+
+.tap-pref { stroke-width: 1.2px; }
+
+/* Modifier keys */
+rect.borderMod,
+use.layerMod { stroke: var(--key-label); }
+text.colorMod  { fill: var(--key-label); }
+rect.colorMod  { fill: var(--key-special); }
+
+/* Symbol layer */
+rect.borderSym,
+use.layerSym { stroke: var(--layer-sym-fg); }
+text.borderSym,
+text.layerSym  { fill: var(--layer-sym-fg); }
+text.colorSym  { fill: var(--shift-sym-fg); }
+rect.colorSym  { fill: var(--shift-sym-bg); }
+
+/* Navigation layers (NavNum, VimNav) */
+rect.borderNav,
+use.layerVim,
+use.layerNav { stroke: var(--layer-nav-fg); }
+text.borderNav,
+text.layerVim,
+text.layerNav  { fill: var(--layer-nav-fg); }
+text.colorNav  { fill: var(--shift-nav-fg); }
+rect.colorNav  { fill: var(--shift-nav-bg); }
+
+/* Numeric layer (NumRow) */
+rect.borderNum,
+use.layerNum { stroke: var(--layer-num-fg); }
+text.borderNum,
+text.layerNum  { fill: var(--layer-num-fg); }
+text.colorNum  { fill: var(--shift-num-fg); }
+rect.colorNum  { fill: var(--shift-num-bg); }
+
+/* Function/Media layer */
+text.layerFun  { fill: var(--layer-fun-fg); }
+text.colorFun  { fill: var(--shift-fun-fg); }
+rect.colorFun  { fill: var(--shift-fun-bg); }

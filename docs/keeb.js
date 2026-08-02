@@ -93,10 +93,13 @@ document.querySelectorAll(".matrix .key").forEach(key => {
   ` : "";
   key.innerHTML = `
     <rect width="${kw}" height="${kh}" rx="5" ry="5"/>${dual}
-    <text x="12.8" y="20.6" class="level2"></text>
-    <text x="38.0" y="43.4" class="num"></text>
-    <text x="38.0" y="43.4" class="nav"></text>
   `;
+  // key.innerHTML = `
+  //   <rect width="${kw}" height="${kh}" rx="5" ry="5"/>${dual}
+  //   <text x="12.8" y="20.6" class="level2"></text>
+  //   <text x="38.0" y="43.4" class="num"></text>
+  //   <text x="38.0" y="43.4" class="nav"></text>
+  // `;
 });
 document.querySelectorAll(".thumb .key").forEach(key => {
   key.innerHTML = `

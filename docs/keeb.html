@@ -6,19 +6,11 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="A libre, ergonomic, polymorphic keyboard.">
     <link type="image/svg+xml" rel="icon" href="favicon.svg" sizes="any">
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <style>
-      html {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
+    <link type="text/css" rel="stylesheet" href="keeb.css">
     <script type="text/javascript" src="keeb.js" defer></script>
   </head>
   <body>
-    <form>
+    <form style="justify-content: center;">
       <select onchange="setConfig(this.value.toLowerCase())">
         <option>Raven</option>        <!-- Corbeau  -->
         <option>Owl</option>          <!-- Chouette -->
@@ -37,9 +29,9 @@
     </form>
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="38 -12 880 380">
-      <g id="board">
-        <path id="flex-half" d="m0 42 q-51 28-131 10 v-68 q86 0 112 -35 l19 15z"/>
-        <use href="#flex-half" transform="scale(-1 1)"/>
+      <g id="outline" class="board">
+        <path id="flex" d="m0 42 q-51 28-131 10 v-68 q86 0 112 -35 l19 15z"/>
+        <use href="#flex" transform="scale(-1 1)"/>
       </g>
 
       <g id="left">

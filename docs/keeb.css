@@ -1,0 +1,89 @@
+html {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  width: 100%;
+  max-width: 64em;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+svg {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+form div {
+  line-height: 1em;
+  text-align: left;
+}
+
+
+/**
+ * ╭───────────────────────────────────────────────────────────────╮
+ * │                      Keyboard Geometry                        │
+ * ╰───────────────────────────────────────────────────────────────╯
+**/
+
+/* XXX magic numbers */
+#left  .matrix { transform-origin: -8px 56px; }
+#right .matrix { transform-origin: 67px 56px; }
+#left  .thumb, .leftThumb  .thumb { transform-origin: -14px -62px; }
+#right .thumb, .rightThumb .thumb { transform-origin:  74px -62px; }
+
+/* XXX Quacken Flex 25.12+ */
+#left    { transform: translate(-12px, 45px); }
+#right   { transform: translate(908px, 45px); }
+#outline { transform: translate(478px, 191px) scale(3.338, -3.338); }
+
+/* XXX dirty WebKit fixes */
+@supports (-webkit-hyphens: none) {
+  #left    { transform: translate(-10px, 53px); }
+  #right   { transform: translate(863px, 50px); }
+  #outline { transform: translate(455px, 191px) scale(3.338, -3.338); }
+}
+
+
+/**
+ * ╭───────────────────────────────────────────────────────────────╮
+ * │                          Color Theme                          │
+ * ╰───────────────────────────────────────────────────────────────╯
+**/
+
+:root {
+  color-scheme: light dark;
+}
+
+.board {
+  fill:   rgba(130, 156, 175, 0.60);
+  stroke: rgba(130, 156, 175, 0.20);
+  stroke-width: 1.0px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+rect {
+  fill: #fff;
+  stroke: #999;
+}
+
+.dualKey {
+  fill: #ddd;
+}
+
+.col1 rect,
+.col2 rect,
+.col3 rect,
+.col4 rect,
+.col5 rect,
+.col6 rect {
+  stroke-width: 0.6px !important;
+}
